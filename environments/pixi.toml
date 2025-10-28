@@ -1,0 +1,31 @@
+[project]
+channels = ["conda-forge"]
+name = "mutual_info_flow_matching"
+platforms = ["osx-arm64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.9.*"
+pytorch = ">=2.6.0,<3"
+matplotlib = ">=3.9.4,<4"
+tqdm = ">=4.67.1,<5"
+scikit-learn = ">=1.6.1,<2"
+git = ">=2.49.0,<3"
+torchmetrics = ">=1.6.3,<2"
+torchvision = ">=0.21.0,<0.22"
+notebook = ">=7.3.3,<8"
+jupyterlab = ">=4.3.6,<5"
+torch-fidelity = ">=0.3.0,<0.4"
+
+[target.linux-64.dependencies]
+# Overwrite the needed PyTorch version only on linux-64
+pytorch-gpu = ">=2.6.0,<3"
+
+[system-requirements]
+cuda = "12.6"  # Replace "12.6" with the specific CUDA version you intend to use
+
+[pypi-dependencies]
+torchdiffeq = ">=0.2.5, <0.3"
+flow-matching = { git = "https://github.com/facebookresearch/flow_matching.git" }

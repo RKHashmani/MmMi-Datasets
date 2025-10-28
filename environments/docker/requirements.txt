@@ -1,0 +1,14 @@
+# GPU-enabled PyTorch stack
+torchmetrics
+torch-fidelity
+
+# Scientific & plotting libraries
+matplotlib
+tqdm
+scikit-learn
+
+# ODE solver
+torchdiffeq
+
+# flow-matching itself, pulled directly from GitHub
+flow-matching @ git+https://github.com/facebookresearch/flow_matching.git

@@ -1,0 +1,63 @@
+# HTCondor job submission file to generate datasets
+
+JobBatchName            = "mutual_info"
+universe                = container
+docker_image            = docker://rkhashmani/mutual_info_flow_matching:1.0.0
+# To prevent the use of cached images:
+docker_pull_policy      = always
+
+
+# Specify your executable (single binary or a script that runs several commands) and arguments to be passed to jobs.
+# $(Process) will be a integer number for each job, starting with "0" and increasing for the relevant number of jobs.
+
+executable              = dataset_generation.sh
+arguments               = $(Process)
+
+
+# To fix a matplotlib bug, we need to set the MPLCONFIGDIR and MPLBACKEND environment variables.
+environment             = "MPLCONFIGDIR=/tmp/ MPLBACKEND=Agg"
+
+
+# IMPORTANT! Require execute servers that can access /staging
+Requirements            = (Target.HasCHTCStaging == true)
+
+
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files   = output_dir/datasets
+transfer_output_remaps  = "output_dir/datasets = osdf:///chtc/staging/<username>/datasets_$(Cluster)"
+
+
+transfer_input_files    = \
+                        dataset_generation.py, \
+                        dataset_generation, \
+                        models, \
+                        output_dir, \
+                        training, \
+                        generation_arguments/Case4_generation_arguments.txt, \
+
+
+# Specify the name of the log, standard error, and standard output (or "screen output") files. Wherever you see $(Cluster), HTCondor will insert the
+#  queue number assigned to this set of jobs at the time of submission.
+log                     = HTCondor_logs/job_$(Cluster)_$(Process).log
+error                   = HTCondor_logs/job_$(Cluster)_$(Process).err
+output                  = HTCondor_logs/job_$(Cluster)_$(Process).out
+
+# Compute resources
+request_cpus            = 1
+request_disk            = 6GB
+request_memory          = 10GB
+
+
+# Extra GPU settings
+request_gpus            = 1
+
+# (Optional) Depending on the model and batch size, request GPU with sufficient memory
+# require_gpus            = GlobalMemoryMb >= 6144
+gpus_minimum_memory       = 11264
+# Requirements            = (Target.CUDADriverVersion >= 10.1)
++WantGPULab               = true
++GPUJobLength             = "short"
+
+# Tell HTCondor to run 3 instances of our job:
+queue 10

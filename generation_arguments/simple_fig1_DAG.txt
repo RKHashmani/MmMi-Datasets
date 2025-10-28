@@ -1,0 +1,41 @@
+##########################################################################
+#                                                                        #
+#   Arguments for Data Generation                                        #
+#   Note: All list arguments should have no spacing, e.g. [1,2,3]        #
+#                                                                        #
+##########################################################################
+
+--dataset_size 4
+--batch_size 64
+--labels [1,6]
+--dataset_name CaseConstructive
+--dataset_loc ./output_dir/datasets/galaxy_images_curve_DAG
+--checkpoint_path ./output_dir/checkpoint-cond-699.pth
+--timestep_size 100
+--sample_seed 42
+# --job_id 0
+--debug 0
+--generation_paradigm constructive
+--calculate_MI
+
+# Constructive Method Arguments
+--N_mod 2
+--N_u 2
+--rho_arg [0.1,0.2]
+# shape (N_mod, N_u)
+--DAG_ul [[1.0,0.0],[0.0,1.0]]
+
+--N_u_theta 1
+--eta_arg [1.0]
+--rho_theta_arg [0.3]
+# shape (N_mod, N_u_theta)
+--DAG_theta [[1.0],[1.0]]
+# --T_vectors_method random
+# --T_vectors_method ./generation_arguments/T_vectors/galaxy_rot_curve_DAG
+
+--alpha 1.0
+--beta 1.0
+#--percentile_to_align 0.95
+
+
+
