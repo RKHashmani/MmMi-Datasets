@@ -1,0 +1,1 @@
+The contents of this folder are adapted from the official [flow matching](https://github.com/facebookresearch/flow_matching/tree/main/examples/image) example by [Lipman, et al. (2024)](https://arxiv.org/abs/2412.06264).
