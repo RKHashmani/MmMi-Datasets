@@ -1,0 +1,19 @@
+[project]
+name = "mmmi-datasets"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "flow-matching>=1.0.10",
+    "jupyterlab>=4.4.10",
+    "matplotlib>=3.9.4",
+    "notebook>=7.4.7",
+    "scikit-learn>=1.6.1",
+    "torch>=2.8.0",
+    "torch-fidelity>=0.3.0",
+    "torchdiffeq>=0.2.5",
+    "torchmetrics>=1.8.2",
+    "torchvision>=0.23.0",
+    "tqdm>=4.67.1",
+]
