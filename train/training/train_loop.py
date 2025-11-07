@@ -43,7 +43,7 @@ def train_one_epoch(
     args: argparse.Namespace,
 ):
 
-    from train.training.grad_scaler import NativeScalerWithGradNormCount
+    from .grad_scaler import NativeScalerWithGradNormCount
 
     gc.collect()
     model.train(True)
