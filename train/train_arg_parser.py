@@ -3,12 +3,16 @@
 #
 # This source code is licensed under the CC-by-NC license found in the
 # LICENSE file in the root directory of this source tree.
+import  sys
+from pathlib import Path
 import argparse
 import json
 import logging
 
-from models.model_configs import MODEL_CONFIGS
 from torchdiffeq._impl.odeint import SOLVERS
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from models.model_configs import MODEL_CONFIGS
 
 logger = logging.getLogger(__name__)
 

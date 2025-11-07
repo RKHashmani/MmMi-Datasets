@@ -24,9 +24,6 @@ from torch.nn.modules import Module
 from torch.nn.parallel import DistributedDataParallel
 from torchmetrics.image.fid import FrechetInceptionDistance
 from torchvision.utils import save_image
-from train.training import distributed_mode
-from train.training.edm_time_discretization import get_time_discretization
-from train.training.train_loop import MASK_TOKEN
 
 logger = logging.getLogger(__name__)
 
@@ -85,6 +82,11 @@ def eval_model(
     fid_samples: int,
     args: Namespace,
 ):
+
+    from train.training import distributed_mode
+    from train.training.edm_time_discretization import get_time_discretization
+    from train.training.train_loop import MASK_TOKEN
+
     gc.collect()
     cfg_scaled_model = CFGScaledModel(model=model)
     cfg_scaled_model.train(False)

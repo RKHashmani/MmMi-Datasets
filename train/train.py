@@ -17,7 +17,6 @@ import numpy as np
 import torch
 import torch.backends.cudnn as cudnn
 import torchvision.datasets as datasets
-from models.model_configs import instantiate_model
 from train_arg_parser import get_args_parser
 
 from training import distributed_mode
@@ -26,6 +25,9 @@ from training.eval_loop import eval_model
 from training.grad_scaler import NativeScalerWithGradNormCount as NativeScaler
 from training.load_and_save import load_model, save_model
 from training.train_loop import train_one_epoch
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from models.model_configs import instantiate_model
 
 logger = logging.getLogger(__name__)
 

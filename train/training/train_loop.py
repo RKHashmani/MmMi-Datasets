@@ -15,7 +15,6 @@ from flow_matching.path.scheduler import PolynomialConvexScheduler
 from models.ema import EMA
 from torch.nn.parallel import DistributedDataParallel
 from torchmetrics.aggregation import MeanMetric
-from train.training.grad_scaler import NativeScalerWithGradNormCount
 
 logger = logging.getLogger(__name__)
 
@@ -40,9 +39,12 @@ def train_one_epoch(
     lr_schedule: torch.torch.optim.lr_scheduler.LRScheduler,
     device: torch.device,
     epoch: int,
-    loss_scaler: NativeScalerWithGradNormCount,
+    loss_scaler: "NativeScalerWithGradNormCount", # Modified from Original to avoid import loop
     args: argparse.Namespace,
 ):
+
+    from train.training.grad_scaler import NativeScalerWithGradNormCount
+
     gc.collect()
     model.train(True)
     batch_loss = MeanMetric().to(device, non_blocking=True)
