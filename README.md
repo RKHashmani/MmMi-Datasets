@@ -46,26 +46,10 @@ docker pull rkhashmani/mutual_info_flow_matching:1.0.0
 For instructions on building a Docker container, please see the relevant [README](environments/docker/README.md) file.
 
 ## Training a Flow Matching Model
-We use a CIFAR10-trained flow matching model in our work to produce realistic images with controlled mutual information. To train your own flow matching model, move the contents of the [train](train) directory to the root directory:
-
-```bash
-.
-├── models                   # ML Models
-│   └── ...
-└── training                 # Scripts required for training
-│   └── ...
-└── train.py                 # Training script
-│
-└── train_arg_parser.py      # Arguments for training
-│
-└── submitit_train.py        # Using submitit for Slurm clusters
-│
-└── submitit_train_args.txt  # Arguments for submitit
-```
-And run the following command:
+We use a CIFAR10-trained flow matching model in our work to produce realistic images with controlled mutual information. To train your own flow matching model, run the following command:
 ```python
- python train.py \               
---dataset=cifar10 \             
+python train/train.py \
+--dataset=cifar10 \
 --batch_size=64 \
 --accum_iter=1 \
 --eval_frequency=100 \
