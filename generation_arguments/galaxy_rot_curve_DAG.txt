@@ -5,11 +5,11 @@
 #                                                                        #
 ##########################################################################
 
---dataset_size 4
+--dataset_size 10000
 --batch_size 64
 --labels [1,6]
---dataset_name CaseConstructive
---dataset_loc ./output_dir/datasets/galaxy_rot_curve_DAG
+--dataset_name galaxy_rot_curve_0_1
+--dataset_loc ./output_dir/datasets/galaxy_rot_curve_0_1
 --checkpoint_path ./output_dir/checkpoint-cond-699.pth
 --timestep_size 100
 --sample_seed 42
