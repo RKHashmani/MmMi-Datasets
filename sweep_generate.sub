@@ -29,7 +29,7 @@ transfer_input_files    = \
     sweep_generate.sh, \
     models, \
     output_dir, \
-    training, \
+    train, \
     dataset_generation.py, \
     dataset_generation, \
 

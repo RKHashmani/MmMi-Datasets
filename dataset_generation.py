@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 def main(args):
 
-    args_filepath = Path(args.dataset_loc) / "dataset_gen_args.json"
+    args_filepath = Path(args.dataset_loc) / f"dataset_gen_args_{args.job_id}.json"
     logger.info(f"Saving args to {args_filepath}")
     with open(args_filepath, "w") as f:
         json.dump(vars(args), f)

@@ -5,7 +5,7 @@
 #                                                                        #
 ##########################################################################
 
---dataset_size 10000
+--dataset_size 100000
 --batch_size 64
 --labels [1,6]
 --dataset_name galaxy_rot_curve_0_1
@@ -36,6 +36,3 @@
 --alpha 1.0
 --beta 1.0
 --percentile_to_align 0.95
-
-
-
