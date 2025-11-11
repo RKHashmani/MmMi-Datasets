@@ -62,5 +62,5 @@ Requirements            = (Target.HasCHTCStaging == true) && (CUDACapability >= 
 +WantGPULab               = true
 +GPUJobLength             = "short"
 
-# Tell HTCondor to run 3 instances of our job:
+# Tell HTCondor to run 10 instances of our job:
 queue 10
