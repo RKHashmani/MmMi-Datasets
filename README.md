@@ -22,8 +22,6 @@ This is the official implementation for our [paper](https://arxiv.org/abs/2510.2
 
 ## To install dependencies
 
-Copy the relevant files from the [environments](environments) directory, i.e. [environment.yml](environments/environment.yml) for Conda and pixi.* files for Pixi.
-
 If you use Conda:
 ```bash
 conda env create -f environment.yml
