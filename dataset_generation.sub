@@ -1,6 +1,6 @@
 # HTCondor job submission file to generate datasets
 
-JobBatchName            = "alaxy_rot_curve_0_1_DAG"
+JobBatchName            = "galaxy_rot_curve_0_1_DAG"
 universe                = container
 docker_image            = docker://rkhashmani/mutual_info_flow_matching:1.0.0
 # To prevent the use of cached images:
@@ -37,7 +37,7 @@ transfer_input_files    = \
                         models, \
                         output_dir, \
                         train, \
-                        generation_arguments/alaxy_rot_curve_0_1_DAG.txt, \
+                        generation_arguments/galaxy_rot_curve_0_1_DAG.txt, \
 
 
 # Specify the name of the log, standard error, and standard output (or "screen output") files. Wherever you see $(Cluster), HTCondor will insert the
