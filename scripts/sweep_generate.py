@@ -10,7 +10,7 @@ DATASET_SIZE = 4
 BATCH_SIZE = 64
 LABELS = "[1,6,0,2,3,4,5,7,8,9]"
 DATASET_NAME = "MMSweep"
-CHECKPOINT_PATH = "../output_dir/checkpoint-cond-699.pth"
+CHECKPOINT_PATH = "./output_dir/checkpoint-cond-699.pth"
 TIMESTEP_SIZE = 100
 SAMPLE_SEED = 42
 GEN_PARADIGM = "constructive"
@@ -27,8 +27,8 @@ dag_ul = "[{}]".format(",".join(["[{}]".format(",".join(["1.0"]*N_U)) for _ in r
 dag_theta = "[{}]".format(",".join(["[1.0]" for _ in range(N_MOD)]))
 
 # ==== Hyperparameter sweep values ====
-ALPHA_VALUES = [1.0, 1.1, 1.5, 2.0]
-BETA_VALUES = [1.0, 1.1, 1.5, 2.0]
+ALPHA_VALUES = [1.2, 1.4, 1.6]
+BETA_VALUES = [1.2, 1.4, 1.6]
 param_list = list(product(ALPHA_VALUES, BETA_VALUES))
 
 if len(sys.argv) < 2:
@@ -48,7 +48,7 @@ alpha, beta = param_list[idx]
 outdir = f"./output_dir/datasets/multimodal_decay_DAG_alpha{alpha}_beta{beta}"
 
 os.makedirs(outdir, exist_ok=True)
-os.makedirs(os.path.join("../output_dir", "datasets"), exist_ok=True)
+os.makedirs(os.path.join("./output_dir", "datasets"), exist_ok=True)
 
 # Skip if output exists (optional)
 result_file = os.path.join(outdir, f"{DATASET_NAME}_0.npz")
