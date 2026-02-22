@@ -6,7 +6,7 @@ import subprocess
 from itertools import product
 
 # ==== Fixed arguments ====
-DATASET_SIZE = 4
+DATASET_SIZE = 10000
 BATCH_SIZE = 64
 LABELS = "[1,6,0,2,3,4,5,7,8,9]"
 DATASET_NAME = "MMSweep"
