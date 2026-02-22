@@ -47,5 +47,5 @@ gpus_minimum_memory     = 10240
 +WantGPULab             = true
 +GPUJobLength           = "short"
 
-queue 16
+queue 9
 # 3^7=2187 jobs for SWEEP_VALUES = [0.01,0.1,1.0]
